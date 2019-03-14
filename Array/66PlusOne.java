@@ -16,6 +16,13 @@
 // Output: [4,3,2,2]
 // Explanation: The array represents the integer 4321.
 
+// 直觉：如果不进位，就退出，如果进位就把它设置为0，下一位看看是否还要进位，如果还要进位就继续换
+// 要点，难点：1. 一位一位算，如果加好了直接return，没加好再看前面的，如果变成999+1，一定是1跟着3个0
+// 归类：Array
+// 难点: Array
+// 复杂度： O(n)
+// 数据结构：Array
+
 class Solution {
     public int[] plusOne(int[] digits) {
         int n = digits.length;
