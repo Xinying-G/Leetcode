@@ -1,3 +1,10 @@
+// 解决方法：1.dfs if find return true, else return flase
+// 直觉：同解决方法 
+// 要点，难点：1.dsf 遇到comb长度和k一样就返回
+// 归类：算法一类 Permutation/backtracking
+// 难点: bakctracking 到底要在什么地方new 并且输入dfs要输入i 不是index
+// 复杂度： O(n)
+// 数据结构：dfs
 import java.lang.StringBuilder;
 import java.util.*;
 

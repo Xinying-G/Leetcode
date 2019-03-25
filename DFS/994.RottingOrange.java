@@ -24,9 +24,9 @@ class Solution {
         boolean done = false;
         int row = grid.length;
         int col = grid[0].length;
-        boolean[][] rotten = new boolean[row][col];
         while(!done)
         {
+            boolean[][] rotten = new boolean[row][col];
             done = true;
             for(int i = 0; i < row; i++)
             {
@@ -59,15 +59,6 @@ class Solution {
                 for(int j = 0; j < col; j++)
                 {
                     if(grid[i][j] == 1 && done == true) return -1;
-                    System.out.printf("%d", grid[i][j]);
-                }
-            }
-
-            for(int i = 0; i < row; i++)
-            {
-                for(int j = 0; j < col; j++)
-                {
-                    rotten[i][j] = false;
                 }
             }
         }

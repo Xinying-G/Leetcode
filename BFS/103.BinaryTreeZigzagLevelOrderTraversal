@@ -1,0 +1,65 @@
+// 103. Binary Tree Zigzag Level Order Traversal
+// Given a binary tree, return the zigzag level order traversal of its nodes' values. (ie, from left to right, then right to left for the next level and alternate between).
+
+// For example:
+// Given binary tree [3,9,20,null,null,15,7],
+//     3
+//    / \
+//   9  20
+//     /  \
+//    15   7
+// return its zigzag level order traversal as:
+// [
+//   [3],
+//   [20,9],
+//   [15,7]
+// ]
+
+// 没做出来 没搞清楚顺序！！因为没用好addlast addfirst
+// 直觉：bfs
+// 要点，难点：1。linkedlist当queue当stack
+// 2. addFirst, addLast, poll,pollFirst,pollLast, push, pop, Set<> a = new HashSet<>(); a.contains()? yes? no
+// 3. if(reverse) addLast(), or addFirst()
+// 归类：BFS
+// 难点: addLast, addFirst?? poll?  逻辑没整明白
+// 复杂度： O（n）
+// 数据结构：BFS, LinkedList, Queue
+
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+
+        LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
+        List<List<Integer>> res = new ArrayList();
+        if(root == null) return res;
+        stack.push(root);
+        boolean reverse = false;
+        while(!stack.isEmpty())
+        {
+            LinkedList<TreeNode> reached = new LinkedList();
+            LinkedList<Integer> layer = new LinkedList<Integer>();
+            reverse = !reverse;
+            while(!stack.isEmpty())
+            {
+                TreeNode node;
+                node = stack.poll();
+                if(reverse) layer.addLast(node.val);
+                else layer.addFirst(node.val);
+                if(node.left != null) reached.add(node.left);
+                if(node.right != null) reached.add(node.right);
+            }
+            res.add(layer);
+            stack = reached;
+        }
+        return res;
+    }
+}
