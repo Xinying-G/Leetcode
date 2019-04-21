@@ -17,6 +17,14 @@
 // Since sqrt(8) < sqrt(10), (-2, 2) is closer to the origin.
 // We only want the closest K = 1 points from the origin, so the answer is just [[-2,2]].
 
+// 直觉：Priorpity Queue
+// 要点，难点：1. Lambda表达comparator的表达式,
+// 解决方法： 把数字对比之后存进priorityqueue里面，改变comparator让它变成距离最近
+// 归类：Priority Queue
+// 难点: Priorityqueue 和comparator
+// 复杂度：O(nlongn) 
+// 数据结构：PriorityQUeue
+
 class Solution {
     public int[][] kClosest(int[][] points, int K) {
         System.out.println(points.length);

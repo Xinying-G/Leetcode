@@ -3,8 +3,6 @@
 
 // Words in the list of banned words are given in lowercase, and free of punctuation.  Words in the paragraph are not case sensitive.  The answer is in lowercase.
 
- 
-
 // Example:
 
 // Input: 
@@ -17,6 +15,15 @@
 // Note that words in the paragraph are not case sensitive,
 // that punctuation is ignored (even if adjacent to words, such as "ball,"), 
 // and that "hit" isn't the answer even though it occurs more because it is banned.
+
+// 直觉：用hashmap和hashset
+// 要点，难点：1. HashMap记录这个词出现的次数，hashset记录baned单词
+// 解决方法：用哈是马屁、记录单词出现的次数，hashset记录baned的单词，如果没有被banned，
+// 记录max和出现的频率和最大的这个单词是谁，直接put，进hashmap
+// 归类：HashMap和HashSet
+// 难点: HashMap和HashSet
+// 复杂度：O(n) 
+// 数据结构：String
 class Solution {
     public String mostCommonWord(String paragraph, String[] banned) {
         Map<String,Integer> map = new HashMap<>();
